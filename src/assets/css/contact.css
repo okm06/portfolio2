@@ -1,0 +1,94 @@
+.contact {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8rem 8vw;
+  position: relative;
+}
+
+.contact-inner {
+  width: 100%;
+}
+
+.contact-title {
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  margin-bottom: 4rem;
+  opacity: 0;
+}
+
+.contact-content {
+  opacity: 0;
+}
+
+.contact-sub {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 4rem;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  transition: gap 0.3s ease;
+}
+
+.contact-link:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.contact-link:hover {
+  gap: 2.5rem;
+}
+
+.contact-link:hover .contact-link-value {
+  color: var(--text-primary);
+}
+
+.contact-link-label {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  min-width: 80px;
+}
+
+.contact-link-value {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.contact-arrow {
+  margin-left: auto;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  transition: transform 0.3s ease;
+}
+
+.contact-link:hover .contact-arrow {
+  transform: translate(4px, -4px);
+}
+
+.contact-footer {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 8vw;
+  font-size: 0.7rem;
+  color: #333;
+  letter-spacing: 0.1em;
+}

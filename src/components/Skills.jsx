@@ -2,6 +2,9 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "../assets/css/skills.css";
+import claudeIcon from "../assets/icons/claude.svg";
+import geminiIcon from "../assets/icons/gemini.svg";
+import chatgptIcon from "../assets/icons/chatgpt.svg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -28,8 +31,14 @@ const skillsData = [
     skills: [{ name: "Spring Boot", icon: "devicon-spring-plain colored", learning: true }],
   },
   {
-    category: "AI",
-    skills: [{ name: "AI 툴 활용", icon: "devicon-github-original colored" }],
+    category: "Tools",
+    skills: [
+      { name: "GitHub", icon: "devicon-github-original colored", type: "devicon" },
+      { name: "Git", icon: "devicon-git-plain colored", type: "devicon" },
+      { name: "Claude", icon: claudeIcon, type: "img" },
+      { name: "Gemini", icon: geminiIcon, type: "img" },
+      { name: "ChatGPT", icon: chatgptIcon, type: "img" },
+    ],
   },
 ];
 
@@ -67,11 +76,13 @@ function Skills() {
     items.forEach((item) => {
       item.addEventListener("mouseenter", () => {
         gsap.to(item, { y: -6, duration: 0.2, ease: "power2.out" });
-        gsap.to(item.querySelector("i"), { scale: 1.2, duration: 0.2, ease: "power2.out" });
+        const icon = item.querySelector("i, img");
+        if (icon) gsap.to(icon, { scale: 1.2, duration: 0.2, ease: "power2.out" });
       });
       item.addEventListener("mouseleave", () => {
         gsap.to(item, { y: 0, duration: 0.3, ease: "power2.out" });
-        gsap.to(item.querySelector("i"), { scale: 1, duration: 0.3, ease: "power2.out" });
+        const icon = item.querySelector("i, img");
+        if (icon) gsap.to(icon, { scale: 1, duration: 0.3, ease: "power2.out" });
       });
     });
   }, []);
@@ -92,7 +103,11 @@ function Skills() {
                     className={`skill-item ${skill.learning ? "skill-item--learning" : ""}`}
                     key={skill.name}
                   >
-                    <i className={skill.icon}></i>
+                    {skill.type === "img" ? (
+                      <img src={skill.icon} alt={skill.name} className="skill-svg-icon" />
+                    ) : (
+                      <i className={skill.icon}></i>
+                    )}
                     <span>{skill.name}</span>
                     {skill.learning && <em>학습중</em>}
                   </div>
