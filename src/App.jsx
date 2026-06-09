@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import Lenis from "lenis";
+import Lenis from "lenis"; // 대문자 Lenis로 임포트
 import Cursor from "./components/Cursor";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";

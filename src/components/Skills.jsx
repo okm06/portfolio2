@@ -5,6 +5,7 @@ import "../assets/css/skills.css";
 import claudeIcon from "../assets/icons/claude.svg";
 import geminiIcon from "../assets/icons/gemini.svg";
 import chatgptIcon from "../assets/icons/chatgpt.svg";
+import gsapIcon from "../assets/icons/gsap.svg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,6 +17,7 @@ const skillsData = [
       { name: "CSS", icon: "devicon-css3-plain colored" },
       { name: "JavaScript", icon: "devicon-javascript-plain colored" },
       { name: "jQuery", icon: "devicon-jquery-plain colored" },
+      { name: "GSAP", icon: gsapIcon, type: "img" },
       { name: "React", icon: "devicon-react-original colored", learning: true },
     ],
   },
